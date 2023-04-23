@@ -7,7 +7,6 @@ return require('packer').startup(function(use)
 	use('tpope/vim-commentary')
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate' })
 	use('nvim-treesitter/playground')
-    use('nvim-treesitter/nvim-tree-docs')
     use('ThePrimeagen/harpoon')
     use('junegunn/fzf.vim')
     use('junegunn/fzf')
@@ -15,15 +14,10 @@ return require('packer').startup(function(use)
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
     use('tpope/vim-rhubarb')
-    use('feline-nvim/feline.nvim')
     use("folke/zen-mode.nvim")
-    -- use("laytan/cloak.nvim")
+    use("ThePrimeagen/vim-be-good")
+    use("junegunn/gv.vim")
     use('jwalton512/vim-blade')
-
-    use{
-        'sindrets/diffview.nvim',
-        requires = { { 'nvim-lua/plenary.nvim' } }
-    }
 
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.1',
@@ -34,10 +28,10 @@ return require('packer').startup(function(use)
         }
 	}
 
-    use {
-        "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup {} end
-    }
+    -- use {
+    --     "windwp/nvim-autopairs",
+    --     config = function() require("nvim-autopairs").setup {} end
+    -- }
 
     use {
         'lewis6991/gitsigns.nvim',
