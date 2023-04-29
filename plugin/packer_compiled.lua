@@ -191,6 +191,11 @@ _G.packer_plugins = {
     path = "/home/joro/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["onedark.nvim"] = {
+    loaded = true,
+    path = "/home/joro/.local/share/nvim/site/pack/packer/start/onedark.nvim",
+    url = "https://github.com/navarasu/onedark.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/joro/.local/share/nvim/site/pack/packer/start/packer.nvim",
