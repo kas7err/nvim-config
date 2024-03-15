@@ -19,10 +19,6 @@ vim.keymap.set('n', '<leader>fz', builtin.treesitter, {})
 vim.keymap.set('n', '<leader>?', builtin.oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
-
--- vim.keymap.set('n', '<leader>e', builtin.lsp_document_symbols, { desc = '[Document [Symbols}' })
--- vim.keymap.set('n', '<leader>es', builtin.lsp_dynamic_workspace_symbols, { desc = '[Workspace [Symbols' })
-
 require('telescope').setup {
     defaults = {
         layout_config = {
@@ -30,39 +26,6 @@ require('telescope').setup {
         },
     },
     pickers = {
-        -- find_files = {
-        --     theme = "dropdown",
-        -- },
-        -- git_files = {
-        --     theme = "dropdown",
-        -- },
-        -- git_status = {
-        --     theme = "dropdown",
-        -- },
-        -- git_branches = {
-        --     theme = "dropdown",
-        -- },
-        -- help_tags = {
-        --     theme = "dropdown",
-        -- },
-        -- current_buffer_fuzzy_find = {
-        --     theme = "dropdown",
-        -- },
-        -- grep_string = {
-        --     theme = "dropdown",
-        -- },
-        -- oldfiles = {
-        --     theme = "dropdown",
-        -- },
-        -- buffers = {
-        --     theme = "dropdown",
-        -- },
-        -- lsp_document_symbols = {
-        --     theme = "dropdown",
-        -- },
-        -- lsp_dynamic_workspace_symbolsp = {
-        --     theme = "dropdown",
-        -- },
     },
     extensions = {
         fzf = {
@@ -74,4 +37,4 @@ require('telescope').setup {
         }
     }
 }
-require('telescope').load_extension('fzf')
+require('telescope')

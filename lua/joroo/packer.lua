@@ -21,18 +21,13 @@ return require('packer').startup(function(use)
     use('jwalton512/vim-blade')
 
 	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.1',
+		'nvim-telescope/telescope.nvim',
 		requires = {
             { 'nvim-lua/plenary.nvim' },
             { 'BurntSushi/ripgrep' },
             { 'sharkdp/fd' },
         }
 	}
-
-    -- use {
-    --     "windwp/nvim-autopairs",
-    --     config = function() require("nvim-autopairs").setup {} end
-    -- }
 
     use {
         'lewis6991/gitsigns.nvim',
@@ -80,9 +75,6 @@ return require('packer').startup(function(use)
         config = function()
             require('neogen').setup {}
         end,
-        -- requires = "nvim-treesitter/nvim-treesitter",
-        -- Uncomment next line if you want to follow only stable versions
-        -- tag = "*"
     }
 
     use({
@@ -90,9 +82,6 @@ return require('packer').startup(function(use)
         config = function()
             require("trouble").setup {
                 icons = false,
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
             }
         end
     })
