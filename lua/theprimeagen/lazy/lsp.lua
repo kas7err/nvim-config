@@ -32,7 +32,6 @@ return {
             },
             handlers = {
                 function(server_name) -- default handler (optional)
-
                     require("lspconfig")[server_name].setup {
                         capabilities = capabilities
                     }
@@ -44,7 +43,7 @@ return {
                         capabilities = capabilities,
                         settings = {
                             Lua = {
-				    runtime = { version = "Lua 5.1" },
+                                runtime = { version = "Lua 5.1" },
                                 diagnostics = {
                                     globals = { "vim", "it", "describe", "before_each", "after_each" },
                                 }
@@ -56,6 +55,21 @@ return {
         })
 
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
+
+        local lspconfig = require('lspconfig')
+        lspconfig.emmet_ls.setup({
+            -- on_attach = on_attach,
+            capabilities = capabilities,
+            filetypes = {"blade","css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
+            init_options = {
+                html = {
+                    options = {
+                        -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+                        ["bem.enabled"] = true,
+                    },
+                },
+            }
+        })
 
         cmp.setup({
             snippet = {
