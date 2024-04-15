@@ -1,1 +1,1 @@
-something something
+# theprimeagen config
