@@ -27,7 +27,8 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- This is going to get me cancelled
-vim.keymap.set("i", "<C-c>", "<Esc>")
+-- vim.keymap.set("i", "<C-c>", "<Esc>")
+vim.keymap.set("i", "jj", "<Esc>")
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
@@ -56,3 +57,15 @@ vim.keymap.set('n', '<leader>rr', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left
 -- Add empty lines before and after cursor line
 vim.keymap.set('n', 'gO', "<Cmd>call append(line('.') - 1, repeat([''], v:count1))<CR>")
 vim.keymap.set('n', 'go', "<Cmd>call append(line('.'),     repeat([''], v:count1))<CR>")
+
+vim.api.nvim_create_user_command("DiagnosticToggle", function()
+    local config = vim.diagnostic.config
+    local vt = config().virtual_text
+    config {
+        virtual_text = not vt,
+        underline = not vt,
+        signs = not vt,
+    }
+end, { desc = "toggle diagnostic" })
+
+vim.keymap.set('n', '<leader>dt', ':DiagnosticToggle<CR>')
