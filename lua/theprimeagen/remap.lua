@@ -69,3 +69,4 @@ vim.api.nvim_create_user_command("DiagnosticToggle", function()
 end, { desc = "toggle diagnostic" })
 
 vim.keymap.set('n', '<leader>dt', ':DiagnosticToggle<CR>')
+vim.keymap.set("n", "<leader>dc", ":PHPDocBlocks<CR>")
