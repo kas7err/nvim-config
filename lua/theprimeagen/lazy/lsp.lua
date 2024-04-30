@@ -57,8 +57,11 @@ return {
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
         local lspconfig = require('lspconfig')
+        lspconfig.tailwindcss.setup({
+            capabilities = capabilities,
+        })
+
         lspconfig.emmet_ls.setup({
-            -- on_attach = on_attach,
             capabilities = capabilities,
             filetypes = {"blade","css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
             init_options = {
