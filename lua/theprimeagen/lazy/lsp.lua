@@ -29,6 +29,7 @@ return {
                 "lua_ls",
                 "rust_analyzer",
                 "gopls",
+                "intelephense",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -55,19 +56,23 @@ return {
         })
 
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
-
         local lspconfig = require('lspconfig')
-        lspconfig.tailwindcss.setup({
-            capabilities = capabilities,
-        })
+
+        lspconfig.intelephense.setup {
+            capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+            filetypes = { "php", "blade" },
+            files = {
+                associations = { "*.php", "*.blade.php" }, -- Associating .blade.php files as well
+                maxSize = 5000000,
+            },
+        }
 
         lspconfig.emmet_ls.setup({
             capabilities = capabilities,
-            filetypes = {"blade","css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
+            filetypes = { "blade", "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
             init_options = {
                 html = {
                     options = {
-                        -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
                         ["bem.enabled"] = true,
                     },
                 },
@@ -84,7 +89,7 @@ return {
                 ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
                 ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
                 -- ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-                ['<C-b>'] = cmp.mapping.confirm({ select = true }),
+                ['<Tab>'] = cmp.mapping.confirm({ select = true }),
                 ["<C-Space>"] = cmp.mapping.complete(),
             }),
             sources = cmp.config.sources({
